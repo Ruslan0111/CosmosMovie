@@ -1,30 +1,46 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <main class="container">
+    <BaseNavbar :showMenu="showMenu" @closeMenu="showMenu = false" />
+    <BaseHeader @openMenu="showMenu = true" />
+    <div class="main">
+      <router-view/>
+    </div>
+  </main>
 </template>
 
+<script>
+  import BaseNavbar from '@/components/BaseNavbar';
+  import BaseHeader from '@/components/BaseHeader';
+
+  export default {
+    name: "App",
+
+    data() {
+      return {
+        showMenu: false
+      }
+    },
+
+    components: {
+      BaseNavbar,
+      BaseHeader
+    }
+  }
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  .container {
+    display: flex;
+  }
+  .main {
+    width: 100%;
+    padding: 70px;
+  }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  @media only screen and (max-width: 1024px) {
+    .main {
+      margin-top: 50px;
+      padding: 30px 20px;
+    }
+  }
 </style>
