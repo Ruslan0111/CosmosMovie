@@ -1,8 +1,8 @@
 <template>
   <div class="movies">
     <div class="movies__title">
-      <h4>{{ title }}</h4>
-      <h6>Movies</h6>
+      <h4 class="mt-light">{{ title }}</h4>
+      <h6 class="mt-semibold">Movies</h6>
     </div>
     <div class="movies__items">
       <div
@@ -13,19 +13,19 @@
         <router-link :to="`/details/${movie.id},${movie.title}`">
           <div>
             <img :src="$imageUrl + movie.poster_path" alt="">
-            <p>{{ movie.title }}</p>
+            <p class="mt-regular">{{ movie.title }}</p>
           </div>
         </router-link>
       </div>
     </div>
     <div class="movies__buttons">
       <button
-        class="prev-btn"
+        class="prev-btn mt-regular"
         v-if="showPrevButton"
         @click="$emit('prevPage')"
       >Prev</button>
       <button
-        class="next-btn"
+        class="next-btn mt-regular"
         v-if="showNextButton"
         @click="$emit('nextPage')"
       >Next</button>
@@ -65,11 +65,13 @@
       font-weight: 300;
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
+      line-height: 1.2;
     }
     h6 {
       font-weight: 600;
       font-size: 1rem;
       margin-bottom: 0.5rem;
+      line-height: 1.2;
     }
   }
   .movies__items {

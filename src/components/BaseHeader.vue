@@ -5,6 +5,7 @@
     </button>
     <div class="header__search">
       <input
+        class="mt-regular"
         v-model="query"
         type="text"
         placeholder="Search"
@@ -50,6 +51,7 @@
       width: 80%;
       border: none;
       outline: none;
+      font-size: 14px;
     }
 
     .search-btn {

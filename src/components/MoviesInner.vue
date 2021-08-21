@@ -4,8 +4,8 @@
       <img :src="$imageUrl + details?.poster_path" alt="">
     </div>
     <div class="details-inner__content">
-      <h1>{{ details?.original_title }}</h1>
-      <h2>{{ details?.tagline }}</h2>
+      <h1 class="mt-extralight">{{ details?.original_title }}</h1>
+      <h2 class="mt-bold">{{ details?.tagline }}</h2>
       <div class="dflex">
         <div class="rating">
           <span class="stars">
@@ -22,17 +22,18 @@
               alt="star-empty"
             >
           </span>
-          <span class="average">{{ details?.vote_average }}</span>
+          <span class="average mt-bold">{{ details?.vote_average }}</span>
         </div>
-        <div class="small-info">
+        <div class="small-info mt-bold">
           <span style="text-transform: uppercase;">{{getLanguage(details?.original_language)}}</span>
            / {{details?.runtime}} MIN. / {{getMovieYear(details?.release_date)}}
         </div>
       </div>
       <div class="details-inner__genres">
-        <h6>The genres</h6>
+        <h6 class="mt-semibold">The genres</h6>
         <ul>
           <li
+            class="mt-bold"
             v-for="genre in details?.genres"
             :key="genre.id"
           >
@@ -44,11 +45,11 @@
         </ul>
       </div>
       <div class="details-inner__overview">
-        <h6>OVERVIEW</h6>
+        <h6 class="mt-semibold">OVERVIEW</h6>
         {{ details?.overview }}
       </div>
       <div class="details-inner__cast">
-        <h6>the cast</h6>
+        <h6 class="mt-semibold">the cast</h6>
         <router-link
           v-for="cast in casts"
           :key="cast.id"
@@ -59,10 +60,12 @@
       </div>
       <div class="details-inner__buttons">
         <a
+          class="mt-medium"
           :href="'https://www.imdb.com/title/' + imdb"
           target="_blank"
         >imdb</a>
         <a
+          class="mt-medium"
           :href="'https://www.youtube.com/watch?v=' + youtube"
           target="_blank"
         >trailer</a>
@@ -276,7 +279,6 @@
       margin: 15px 0;
     }
     .small-info {
-      margin-bottom: 0;
       font-size: 0.9em;
     }
     .details-inner__overview {
@@ -297,6 +299,13 @@
       a {
         font-size: 0.8em;
       }
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .small-info {
+      margin-bottom: 0;
+      margin-top: 1rem;
+      font-size: 0.9em;
     }
   }
   @media only screen and (max-width: 568px) {

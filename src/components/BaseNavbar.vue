@@ -7,13 +7,13 @@
       <div class="navbar__image">
         <img src="@/assets/img/nav-image.svg" alt="">
       </div>
-      <h5>Movies</h5>
-      <router-link class="popular" exact to="/">Popular</router-link>
-      <router-link class="top" to="/topRated">Top Rated</router-link>
-      <router-link class="upcoming" to="/upcoming">Upcoming</router-link>
-      <h5 :style="{marginTop: '30px'}">Genres</h5>
+      <h5 class="mt-bold">Movies</h5>
+      <router-link class="popular mt-semibold" exact to="/">Popular</router-link>
+      <router-link class="top mt-semibold" to="/topRated">Top Rated</router-link>
+      <router-link class="upcoming mt-semibold" to="/upcoming">Upcoming</router-link>
+      <h5 class="mt-bold" :style="{marginTop: '30px'}">Genres</h5>
       <router-link
-        class="genres"
+        class="genres mt-semibold"
         v-for="genre in genres"
         :key="genre.id"
         :to="`/genres/${genre.name},${genre.id}`"
@@ -60,7 +60,6 @@
     width: 250px;
     position: relative;
     h5 {
-      font-weight: 700;
       font-size: 1rem;
       text-transform: uppercase;
       color: #333;
@@ -73,7 +72,6 @@
       font-size: 0.8rem;
       text-transform: capitalize;
       color: #999;
-      font-weight: 600;
       padding: 0.3rem 2rem;
       text-decoration: none;
       outline: none;
