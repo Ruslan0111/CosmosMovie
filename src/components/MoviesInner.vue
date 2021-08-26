@@ -53,7 +53,7 @@
         <router-link
           v-for="cast in casts"
           :key="cast.id"
-          to="/"
+          :to="'/person/' + cast.id"
         >
           {{ cast.original_name }},
         </router-link>
